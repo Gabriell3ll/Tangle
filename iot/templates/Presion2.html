@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<div id="chartlineal"></div>
+
+<script type="text/javascript">
+    var lista={{valorpresiones}};
+    var etiquetas=[{% for i in etipresion %} '{{i.hora}}', {% endfor %}];
+    var tituloy="Presion (Pa)";
+    var titulo="Grafica Presion vs Tiempo"
+    
+</script>
+<script type="text/javascript" src="{% static 'graficas.js' %}"></script>
+</html>

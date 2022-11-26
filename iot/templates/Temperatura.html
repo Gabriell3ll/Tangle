@@ -1,0 +1,22 @@
+{% extends "dashboard.html" %}
+{% block content %}
+{% load static %}
+<div id="refresco1">
+  <div id="chartlineal"></div>
+
+  <script type="text/javascript">
+      var lista={{valortemperaturas}};
+      var etiquetas=[{% for i in etitemperatura %} '{{i.hora}}', {% endfor %}];
+      var tituloy="Temperatura (°C)";
+      var titulo="Grafica Temperatura vs Tiempo"
+  </script>
+  <script type="text/javascript" src="{% static 'graficas.js' %}"></script>
+</div>
+<script>
+  $(document).ready(function(){
+    setInterval(function(){
+      $("#refresco1").load("/Temperatura2");
+    },60000);
+  });
+</script>
+{% endblock content %}

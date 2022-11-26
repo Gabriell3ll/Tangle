@@ -1,0 +1,22 @@
+{% extends "dashboard.html" %}
+{% block content %}
+{% load static %}
+<div id="refresco1">
+  <div id="chartlineal"></div>
+  <script type="text/javascript">
+      var lista={{valorhumedads}};
+      var etiquetas=[{% for i in etihumedad %} '{{i.hora}}', {% endfor %}];
+      var tituloy="Humedad (% RH)";
+      var titulo="Grafica humedad vs Tiempo"
+      
+  </script>
+  <script type="text/javascript" src="{% static 'graficas.js' %}"></script>
+</div>
+<script>
+  $(document).ready(function(){
+    setInterval(function(){
+      $("#refresco1").load("/Humedad2");
+    },60000);
+  });
+</script>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "dashboard.html" %}
+{% block content %}
+{% load static %}
+<div id="refresco1">
+  <div id="chartlineal"></div>
+
+  <script type="text/javascript">
+      var lista={{valorpresiones}};
+      var etiquetas=[{% for i in etipresion %} '{{i.hora}}', {% endfor %}];
+      var tituloy="Presion (Pa)";
+      var titulo="Grafica Presion vs Tiempo"
+      
+  </script>
+  <script type="text/javascript" src="{% static 'graficas.js' %}"></script>
+</div>
+<script>
+  $(document).ready(function(){
+    setInterval(function(){
+      $("#refresco1").load("/Presion2");
+    },60000);
+  });
+</script>
+{% endblock content %}
